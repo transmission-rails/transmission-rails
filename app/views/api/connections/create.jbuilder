@@ -1,0 +1,1 @@
+json.partial! 'connection', connection: @connection

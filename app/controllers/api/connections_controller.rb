@@ -14,6 +14,11 @@ module Api
       @connection.update_attributes! connection_params
     end
 
+    def create
+      @connection = Connection.create! connection_params
+      render status: 201
+    end
+
     private
 
     def connection_params
