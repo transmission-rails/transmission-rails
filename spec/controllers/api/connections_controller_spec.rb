@@ -130,4 +130,29 @@ RSpec.describe Api::ConnectionsController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    describe 'with valid parameters' do
+      before :each do
+        @connection = create(:connection)
+      end
+
+      it 'deletes @connection' do
+        delete :destroy, id: @connection.id
+        expect {
+          Connection.find @connection.id
+        }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it 'renders the index template' do
+        delete :destroy, id: @connection.id
+        expect(response).to render_template('destroy')
+      end
+
+      it 'responds successfully' do
+        delete :destroy, id: @connection.id
+        expect(response.status).to eq(200)
+      end
+    end
+  end
 end

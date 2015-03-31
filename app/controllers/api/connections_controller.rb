@@ -19,6 +19,11 @@ module Api
       render status: 201
     end
 
+    def destroy
+      @connection = Connection.find params[:id]
+      @connection.destroy!
+    end
+
     private
 
     def connection_params
