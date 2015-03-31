@@ -5,5 +5,9 @@ module Api
       @connections = Connection.all
     end
 
+    def show
+      @connection = Connection.find params[:id]
+    end
+
   end
 end

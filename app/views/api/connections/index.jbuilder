@@ -1,1 +1,1 @@
-json.array! @connections, :id, :name, :host, :port, :path, :ssl
+json.array! @connections, partial: 'connection', as: 'connection'
