@@ -1,0 +1,1 @@
+json.array! @connections, :id, :name, :host, :port, :path, :ssl
