@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :api do
-    resources :connections, only: [:index, :show]
+    resources :connections, only: [:index, :show, :update]
   end
 
 end
