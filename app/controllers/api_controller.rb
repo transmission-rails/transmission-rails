@@ -5,8 +5,6 @@ class ApiController < ApplicationController
   before_filter :authenticate
   before_filter :check_auth
 
-  protected
-
   def authenticate
     authenticate_with_http_basic do |username, password|
       @current_user = User.authenticate! username, password
