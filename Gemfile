@@ -46,5 +46,5 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
 end
 
-gem 'transmission-rpc-ruby', '~> 0.2'
+gem 'transmission-rpc-ruby', '~> 0.3'
 gem 'attr_encrypted', '~> 1.3'

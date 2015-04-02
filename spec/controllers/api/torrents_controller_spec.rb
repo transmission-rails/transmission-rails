@@ -6,8 +6,8 @@ RSpec.describe Api::TorrentsController, type: :controller do
   before do
     @user = create(:user)
     @connection = create(:connection)
-    @torrent = Transmission::Model::Torrent.new({'id' => 1}, @connection.rpc)
-    @torrents = [@torrent]
+    @torrent = Transmission::Model::Torrent.new([{'id' => 1}], @connection.rpc)
+    @torrents = Transmission::Model::Torrent.new([{'id' => 1}, {'id' => 2}], @connection.rpc)
     allow(controller).to(receive(:current_user).and_return(@user))
     allow(Transmission::Model::Torrent).to(receive(:all).and_return(@torrents))
     allow(Transmission::Model::Torrent).to(receive(:find).and_return(@torrent))
