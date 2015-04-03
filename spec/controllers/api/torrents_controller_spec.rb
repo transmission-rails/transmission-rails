@@ -118,4 +118,30 @@ RSpec.describe Api::TorrentsController, type: :controller do
     end
   end
 
+  [:start, :stop, :start_now, :verify, :re_announce, :move_up, :move_down, :move_top, :move_bottom].each do |action|
+    describe "POST torrent action: #{action}" do
+      before :each do
+        allow(@torrent).to(receive("#{action}!".to_sym).and_return(nil))
+      end
+
+      it 'should perform the action' do
+        post :torrent_action, connection_id: @connection.id, id: @torrent.id, torrent_action: action
+        expect(@torrent).to have_received("#{action}!".to_sym)
+      end
+    end
+  end
+
+  [:start_all, :stop_all].each do |action|
+    describe "POST #{action}" do
+      before :each do
+        allow(Transmission::Model::Torrent).to(receive("#{action}!".to_sym).and_return(nil))
+      end
+
+      it 'should perform the action' do
+        post action, connection_id: @connection.id
+        expect(Transmission::Model::Torrent).to have_received("#{action}!".to_sym)
+      end
+    end
+  end
+
 end
