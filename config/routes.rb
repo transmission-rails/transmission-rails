@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   namespace :api do
     resources :connections, only: [:index, :show, :update, :create, :destroy] do
       resources :session_stats, only: [:index]

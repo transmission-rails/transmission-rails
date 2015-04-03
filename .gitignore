@@ -17,3 +17,7 @@
 /tmp
 
 .idea/
+
+bower_components
+.bowerrc
+bower.json
