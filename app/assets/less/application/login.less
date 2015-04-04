@@ -1,0 +1,25 @@
+@import 'variables';
+
+.login {
+  background-color: @clouds;
+  padding: 25px;
+  position: relative;
+
+  &:after {
+    right: 100%;
+    top: 40%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-right-color: @clouds;
+    border-width: 20px;
+    margin-top: -20px;
+  }
+}
