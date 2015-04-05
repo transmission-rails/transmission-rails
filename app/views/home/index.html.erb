@@ -53,6 +53,7 @@
   <script src="<%= asset_path('application.js') %>"></script>
   <script>
     window.CSRF_TOKEN = '<%= form_authenticity_token %>';
+    window.LOGGED_IN = <%= !!session[:user_id] %>;
 
     WebFont.load({
       google: {

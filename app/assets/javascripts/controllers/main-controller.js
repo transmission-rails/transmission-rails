@@ -4,7 +4,7 @@
   angular.module('Transmission.MainController', [])
     .controller('MainController', ['$scope', function ($scope) {
 
-      $scope.loggedIn = false;
+      $scope.loggedIn = window.LOGGED_IN;
 
     }]);
 

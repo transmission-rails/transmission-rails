@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+  post 'login', to: 'home#login'
+  post 'logout', to: 'home#logout'
 
   namespace :api do
     resources :connections, only: [:index, :show, :update, :create, :destroy] do
