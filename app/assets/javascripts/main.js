@@ -4,7 +4,8 @@
   angular.module('Transmission', [
     'ngRoute',
     'ngAnimate',
-    'Transmission.Controllers'
+    'Transmission.Controllers',
+    'Transmission.Directives'
   ])
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
       $routeProvider

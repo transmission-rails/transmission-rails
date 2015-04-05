@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Transmission">
+<html lang="en">
 <head>
   <meta name="lang" content="en">
   <meta charset="utf-8">
@@ -11,12 +11,64 @@
   <link href="favicon.png?v=2" rel="shortcut icon">
   <title>Transmission Rails</title>
   <link rel="stylesheet" type="text/css" href="<%= asset_path('application.css') %>"/>
+  <style>
+    body {background-color: #2980b9}
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      background-color: #ffffff;
+
+      margin: 100px auto;
+      -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+      animation: rotateplane 1.2s infinite ease-in-out;
+    }
+
+    @-webkit-keyframes rotateplane {
+      0% { -webkit-transform: perspective(120px) }
+      50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+      100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+    }
+
+    @keyframes rotateplane {
+      0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+      } 50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+      } 100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+    }
+  </style>
 </head>
 <body ng-controller="MainController">
-  <div ng-view></div>
+  <div ng-view>
+    <div class="loading">
+      <div class="spinner"></div>
+    </div>
+  </div>
   <script src="<%= asset_path('application.js') %>"></script>
   <script>
     window.CSRF_TOKEN = '<%= form_authenticity_token %>';
+
+    WebFont.load({
+      google: {
+        families: ['Oswald:300,400,700', 'Roboto:100,300,500']
+      },
+      custom: {
+        families: ['FontAwesome'],
+        urls: ['http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css']
+      },
+      timeout: 3000,
+      active: function () {
+        $('.loading').fadeOut(400, function () {
+          angular.bootstrap(document, ['Transmission']);
+        });
+      }
+    });
   </script>
 </body>
 </html>

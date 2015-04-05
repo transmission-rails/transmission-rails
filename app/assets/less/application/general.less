@@ -4,3 +4,44 @@ body {
   background-color: @belize-hole;
   color: white;
 }
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+
+  margin: 100px auto;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+.vs-0  { margin-top:  0px; }
+.vs-1  { margin-top:  10px; }
+.vs-2  { margin-top:  20px; }
+.vs-3  { margin-top:  30px; }
+.vs-4  { margin-top:  40px; }
+.vs-5  { margin-top:  50px; }
+.vs-6  { margin-top:  60px; }
+.vs-7  { margin-top:  70px; }
+.vs-8  { margin-top:  80px; }
+.vs-9  { margin-top:  90px; }
+.vs-10 { margin-top: 100px; }
