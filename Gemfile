@@ -26,6 +26,8 @@ gem 'uglifier'
 gem 'rabl'
 
 # User Authentication
-gem 'devise'
+gem 'devise_token_auth'
+gem 'omniauth'
 
+# Transmission client
 gem 'transmission-rpc-ruby', '~> 0.2'
