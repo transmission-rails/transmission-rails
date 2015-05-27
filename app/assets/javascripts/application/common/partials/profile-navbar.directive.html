@@ -1,0 +1,30 @@
+<div class="margin top"></div>
+
+<div class="row">
+    <div class="container">
+        <nav class="navbar-collapse collapse main-nav" collapse="!navCollapsed">
+            <ul>
+                <li class="home" ng-class="{'active': route === 'home'}">
+                    <a href="#/">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+                <li ng-class="{'active': route === 'profile_update'}">
+                    <a href="#/me/update">
+                        Profile
+                    </a>
+                </li>
+                <li ng-class="{'active': route === 'password_update'}">
+                    <a href="#/me/update/password">
+                        Password
+                    </a>
+                </li>
+                <li ng-class="{'active': route === 'help'}">
+                    <a href="#/">
+                        Help
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

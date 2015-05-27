@@ -1,0 +1,48 @@
+<div class="row">
+    <header class="navbar navbar-default navbar-gitlab" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" ng-click="navCollapsed = !navCollapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar" ng-repeat="i in [1,2,3]"></span>
+                </button>
+                <a class="navbar-brand" href="#/">{{app_name}}</a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" collapse="!navCollapsed">
+                <ul class="nav navbar-nav">
+                    <li class="hidden-sm hidden-xs">
+                        <form class="navbar-form pull-left">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                                <input type="text" class="form-control search" placeholder="Search">
+                            </div>
+                        </form>
+                    </li>
+                    <li>
+                        <a href="#/" tooltip-placement="bottom" tooltip="Dashboard">
+                            <i class="fa fa-dashboard"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/me/update" tooltip-placement="bottom" tooltip="{{me.name}}">
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="logout()" tooltip-placement="bottom" tooltip="logout">
+                            <i class="fa fa-sign-out"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="profile-pic" href="#/users/{{me.id}}">
+                            <img ng-src="{{me.avatar.avatar.thumb.url}}" image-fallback="{{me.gravatar}}">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+</div>

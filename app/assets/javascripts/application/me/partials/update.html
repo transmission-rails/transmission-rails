@@ -1,0 +1,86 @@
+<div class="wrapper">
+    <navbar></navbar>
+    <sub-navbar></sub-navbar>
+    <div class="margin top"></div>
+
+    <div class="row">
+        <div class="container">
+            <div class="col-lg-12 content">
+                <h4><strong>Profile settings</strong></h4>
+                <h4>
+                    <small>This information appears on your profile.</small>
+                </h4>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="row">
+        <div class="container">
+            <div class="col-lg-7 col-md-7">
+                <form name="updateMe" ng-submit="update()">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-male"></i></span>
+                            <input class="form-control" ng-model="me.name" placeholder="name" required="" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-inbox"></i></span>
+                            <input class="form-control" ng-model="me.email" placeholder="email" required="" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-skype"></i></span>
+                            <input class="form-control" ng-model="me.skype" placeholder="skype" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                            <input class="form-control" ng-model="me.twitter" placeholder="twitter" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+                            <input class="form-control" ng-model="me.facebook" placeholder="facebook" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                            <input class="form-control" ng-model="me.linkedin" placeholder="linkedin" type="text">
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-success btn-block" ng-disabled="updateMe.$invalid" type="submit">
+                        <i class="fa fa-floppy-o fa-lg"> Update</i>
+                    </button>
+                    <br class="visible-xs">
+                </form>
+            </div>
+
+            <div class="col-lg-5 col-md-5">
+                <div class="col-lg-4 col-md-4">
+                    <img ng-src="{{me.avatar.avatar.thumb.url}}" image-fallback="{{me.gravatar}}" height="160px"
+                         width="160px">
+                </div>
+
+                <div class="col-lg-7 col-lg-offset-1 col-md-6 col-md-offset-2">
+                    <strong>You can upload your avatar here</strong>
+                    <br>
+                    <small>The maximum file size allowed is 100KB.</small>
+                    <hr>
+                <span class="btn btn-sm btn-default btn-block btn-file">
+                  <i class="fa fa-paperclip"> Choose file</i>
+                  <input ng-file-select="onFileSelect($files)" type="file">
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer></footer>
