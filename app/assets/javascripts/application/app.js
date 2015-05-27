@@ -5,6 +5,7 @@
       .module('application', [
         'ngRoute',
         'ngAnimate',
+        'ng-token-auth',
         'ui.bootstrap',
         'angularMoment',
         'application.common',

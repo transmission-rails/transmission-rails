@@ -1,23 +1,23 @@
 (function (angular) {
-  'use strict';
+    'use strict';
 
-  angular
-      .module('application.me')
-      .config(moduleConfig);
+    angular
+            .module('application.me')
+            .config(moduleConfig);
 
-  /* @ngInject */
-  function moduleConfig($routeProvider) {
-    $routeProvider
-        .when('/me/update', {
-          templateUrl: '<%= asset_path('application/me/partials/update.html') %>',
-          controller: 'MeUpdateCtrl',
-          name: 'profile_update'
-        })
-        .when('/me/update/password', {
-          templateUrl: '<%= asset_path('application/me/partials/password.html') %>',
-          controller: 'MeUpdatePasswordCtrl',
-          name: 'password_update'
-        })
-  }
+    /* @ngInject */
+    function moduleConfig($routeProvider) {
+        $routeProvider
+                .when('/me/update', {
+                    templateUrl: '<%= asset_path('application/me/partials/update.html') %>',
+                    controller: 'MeUpdateCtrl',
+                    name: 'profile_update'
+                })
+                .when('/me/update/password', {
+                    templateUrl: '<%= asset_path('application/me/partials/password.html') %>',
+                    controller: 'MeUpdatePasswordCtrl',
+                    name: 'password_update'
+                })
+    }
 
 }(window.angular));

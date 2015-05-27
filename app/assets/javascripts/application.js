@@ -6,8 +6,10 @@
 
 // Bower Angular libraries
 //= require ../../../vendor/assets/bower/angular/angular.js
+//= require ../../../vendor/assets/bower/angular/angular-cookie.js
 //= require ../../../vendor/assets/bower/angular-animate/angular-animate.js
 //= require ../../../vendor/assets/bower/angular-route/angular-route.js
+//= require ../../../vendor/assets/bower/ng-token-auth/dist/ng-token-auth.js
 //= require ../../../vendor/assets/bower/angular-bootstrap/ui-bootstrap.js
 //= require ../../../vendor/assets/bower/angular-bootstrap/ui-bootstrap-tpls.js
 //= require ../../../vendor/assets/bower/angular-moment/angular-moment.js

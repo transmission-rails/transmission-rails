@@ -3,11 +3,11 @@
 
   angular
       .module('application.common')
-      //.directive('navbar', navbar)
+    //.directive('navbar', navbar)
       .directive('subNavbar', subNavbar)
       .directive('imageFallback', imageFallback)
       .directive('footer', footer);
-  
+
   /* @ngInject */
   function navbar(APP_CONSTANTS, Me, Session) {
     return {
@@ -18,7 +18,7 @@
         Me.index().then(function (success) {
           scope.me = success.data;
         });
-        
+
         scope.logout = function () {
           Session.logout();
         };

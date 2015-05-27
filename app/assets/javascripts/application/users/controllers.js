@@ -35,7 +35,7 @@
     $scope.failure = false;
 
     $scope.register = function () {
-      User.create({user: $scope.user}, function () {
+      User.create($scope.user).then(function () {
         $location.path('/users/login');
       }, function () {
         $.growl.error({title: 'Registration failed!', message: 'please fill in the appropriate fields below'});

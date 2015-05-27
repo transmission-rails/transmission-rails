@@ -3,6 +3,7 @@ module Api
     # Any actions related with the users resource
     #
     class UsersController < BaseController
+      before_action :authenticate_user!
       before_action :set_instances, only: [:show, :update, :destroy]
 
       def index

@@ -1,30 +1,30 @@
 (function (angular) {
-  'use strict';
+    'use strict';
 
-  angular
-      .module('application.users')
-      .config(moduleConfig);
+    angular
+            .module('application.users')
+            .config(moduleConfig);
 
-  /* @ngInject */
-  function moduleConfig($routeProvider) {
-    $routeProvider
-        .when('/users/login', {
-          templateUrl: '<%= asset_path('application/users/partials/login.html') %>',
-          controller: 'UsersLoginCtrl',
-          name: 'users_login'
-        })
+    /* @ngInject */
+    function moduleConfig($routeProvider) {
+        $routeProvider
+                .when('/users/login', {
+                    templateUrl: '<%= asset_path('application/users/partials/login.html') %>',
+                    controller: 'UsersLoginCtrl',
+                    name: 'users_login'
+                })
 
-        .when('/users/registration', {
-          templateUrl: '<%= asset_path('application/users/partials/registration.html') %>',
-          controller: 'UsersRegistrationCtrl',
-          name: 'users_registration'
-        })
+                .when('/users/registration', {
+                    templateUrl: '<%= asset_path('application/users/partials/registration.html') %>',
+                    controller: 'UsersRegistrationCtrl',
+                    name: 'users_registration'
+                })
 
-        .when('/users/:id', {
-          templateUrl: '<%= asset_path('application/users/partials/show.html') %>',
-          controller: 'UsersShowCtrl',
-          name: 'users_show'
-        })
-  }
+                .when('/users/:id', {
+                    templateUrl: '<%= asset_path('application/users/partials/show.html') %>',
+                    controller: 'UsersShowCtrl',
+                    name: 'users_show'
+                })
+    }
 
 }(window.angular));

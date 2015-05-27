@@ -30,7 +30,7 @@
           }
         })
       },
-      
+
       logout: function () {
         $http({
           method: 'GET',
@@ -48,17 +48,17 @@
       get: function (name) {
         return JSON.parse(atob(localStorage[name]));
       },
-      
+
       set: function (name, value) {
         if (value) {
           localStorage[name] = btoa(JSON.stringify(value));
         }
       },
-      
+
       has: function (name) {
         return !!localStorage[name];
       },
-      
+
       empty: function (name) {
         delete localStorage[name];
       }

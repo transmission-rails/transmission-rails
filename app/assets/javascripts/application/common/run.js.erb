@@ -2,20 +2,20 @@
 <% environment.context_class.instance_eval { include ActionView::Helpers::JavaScriptHelper } %>
 
 (function (angular) {
-  'use strict';
+    'use strict';
 
-  angular
-      .module('application.common')
-      .run(populateTemplateCache);
+    angular
+            .module('application.common')
+            .run(populateTemplateCache);
 
-  /* @ngInject */
-  function populateTemplateCache($templateCache) {
-    <% Dir.glob(File.join('app', 'assets', 'javascripts', 'application', 'common', '**', '*.directive.html')).each do |f| %>
-    $templateCache.put(
-        "<%= f.gsub(/^app\/assets\/javascripts\/application\//, '/templates/') %>",
-        "<%= escape_javascript(File.read(f)) %>"
-    );
-    <% end %>
-  }
+    /* @ngInject */
+    function populateTemplateCache($templateCache) {
+        <% Dir.glob(File.join('app', 'assets', 'javascripts', 'application', 'common', '**', '*.directive.html')).each do |f| %>
+        $templateCache.put(
+                "<%= f.gsub(/^app\/assets\/javascripts\/application\//, '/templates/') %>",
+                "<%= escape_javascript(File.read(f)) %>"
+        );
+        <% end %>
+    }
 
 })(window.angular);
