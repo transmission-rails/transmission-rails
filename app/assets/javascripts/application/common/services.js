@@ -4,40 +4,23 @@
   angular
       .module('application.common')
       .factory('AuthInterceptor', AuthInterceptor)
-      .factory('Session', Session)
       .factory('Store', Store);
 
   /* @ngInject */
-  function AuthInterceptor($q, $location) {
+  function AuthInterceptor($injector) {
     return {
-      responseError: function (response) {
-        $location.path('/users/login');
-        return $q.reject(response);
-      }
-    };
-  }
+      request: function (config) {
+        if (config.url.indexOf('/api/v1') > -1) {
+          $injector.invoke(['$auth', function ($auth) {
+            config.headers = $auth.retrieveData('auth_headers') || {};
 
-  /* @ngInject */
-  function Session($http, $location, API_CONSTANTS) {
-    return {
-      login: function (username, password) {
-        return $http({
-          method: 'POST',
-          url: API_CONSTANTS.SESSION_BASE + '/login',
-          data: {
-            username: username,
-            password: password
-          }
-        })
-      },
+            config.headers['Accept'] = 'application/json';
+            config.headers['Content-Type'] = 'application/json';
+            config.headers['X-CSRF-Token'] = window['CSRF_TOKEN'];
+          }]);
+        }
 
-      logout: function () {
-        $http({
-          method: 'GET',
-          url: API_CONSTANTS.SESSION_BASE + '/logout'
-        }).then(function () {
-          $location.path('/users/login');
-        });
+        return config;
       }
     };
   }

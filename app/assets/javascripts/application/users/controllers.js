@@ -3,43 +3,37 @@
 
   angular
       .module('application.users')
-      .controller('UsersShowCtrl', UsersShowCtrl)
       .controller('UsersLoginCtrl', UsersLoginCtrl)
       .controller('UsersRegistrationCtrl', UsersRegistrationCtrl);
 
   /* @ngInject */
-  function UsersShowCtrl($scope, $routeParams, User) {
-    User.show({id: $routeParams.id}, function (response) {
-      $scope.user = response;
-    });
-  }
+  function UsersLoginCtrl($scope, $location, $auth) {
+    $scope.user = {};
 
-  /* @ngInject */
-  function UsersLoginCtrl($scope, $location, Session) {
     $scope.login = function () {
-      Session.login($scope.user.username, $scope.user.password).then(function (response) {
-        $location.path('/');
-      }, function () {
-        $.growl.error({title: 'Login Failed!', message: 'Username or password incorrect'});
-      });
+      $auth.submitLogin($scope.user)
+          .then(function(success) {
+            $location.path('/');
+          })
+          .catch(function(error) {
+            $.growl.error({title: 'Login Failed!', message: 'Username or password incorrect'});
+          });
     };
   }
 
   /* @ngInject */
-  function UsersRegistrationCtrl($scope, $location, Store, User) {
-    if (Store.has('oauth')) {
-      $location.path('/');
-    }
-
+  function UsersRegistrationCtrl($scope, $location, $auth) {
     $scope.user = {};
     $scope.failure = false;
 
     $scope.register = function () {
-      User.create($scope.user).then(function () {
-        $location.path('/users/login');
-      }, function () {
-        $.growl.error({title: 'Registration failed!', message: 'please fill in the appropriate fields below'});
-      });
+      $auth.submitRegistration($scope.user)
+          .then(function (success) {
+            $location.path('/users/login');
+          })
+          .catch(function (error) {
+            $.growl.error({title: 'Registration failed!', message: 'please fill in the appropriate fields below'});
+          });
     };
   }
 

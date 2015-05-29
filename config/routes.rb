@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 
-  get '/' => 'layouts#index', as: 'root'
+  mount_devise_token_auth_for 'User', at: 'auth'
 
-  post '/session/login' => 'session#login'
-  get '/session/logout' => 'session#logout'
+  get '/' => 'layouts#index', as: 'root'
 
   #
   # Api Resources

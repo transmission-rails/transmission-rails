@@ -16,8 +16,6 @@
       },
 
       update: function (data) {
-        cache.remove(API_CONSTANTS.ME_BASE);
-
         return $http({
           method: 'PUT',
           url: API_CONSTANTS.ME_BASE,

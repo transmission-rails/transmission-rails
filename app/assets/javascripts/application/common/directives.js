@@ -3,13 +3,13 @@
 
   angular
       .module('application.common')
-    //.directive('navbar', navbar)
+      .directive('navbar', navbar)
       .directive('subNavbar', subNavbar)
       .directive('imageFallback', imageFallback)
       .directive('footer', footer);
 
   /* @ngInject */
-  function navbar(APP_CONSTANTS, Me, Session) {
+  function navbar(APP_CONSTANTS, Me, $auth) {
     return {
       restrict: 'E',
       templateUrl: '/templates/common/partials/navbar.directive.html',
@@ -20,7 +20,10 @@
         });
 
         scope.logout = function () {
-          Session.logout();
+          $auth.signOut()
+              .then(function(resp) {
+                // handle success response
+              })
         };
       }
     }

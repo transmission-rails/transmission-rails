@@ -7,9 +7,10 @@
 
   /* @ngInject */
   function HomeCtrl($scope, Me) {
-    Me.index().then(function (success) {
-      $scope.me = success.data;
-    });
+    Me.index()
+        .then(function (success) {
+          $scope.me = success.data;
+        });
   }
 
 }(window.angular));

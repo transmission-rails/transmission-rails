@@ -1,17 +1,14 @@
 class ApplicationController < ActionController::Base
   include DeviseTokenAuth::Concerns::SetUserByToken
-  protect_from_forgery with: :exception
 
-  rescue_from ActionController::InvalidAuthenticityToken do
-    render json: { :error => 'missing_csrf' }, status: :bad_request
-  end
+  protect_from_forgery with: :null_session
 
-  def handle_unverified_request
-    super
-    raise ActionController::InvalidAuthenticityToken
-  end
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def handle_missing_session
-    render json: { :error => 'no_session' }, status: :unauthorized
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :username
   end
 end
