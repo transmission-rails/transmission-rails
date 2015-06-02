@@ -4,6 +4,7 @@
   angular
       .module('application.users')
       .controller('UsersLoginCtrl', UsersLoginCtrl)
+      .controller('UsersPasswordResetCtrl', UsersPasswordResetCtrl)
       .controller('UsersRegistrationCtrl', UsersRegistrationCtrl);
 
   /* @ngInject */
@@ -12,12 +13,24 @@
 
     $scope.login = function () {
       $auth.submitLogin($scope.user)
-          .then(function(success) {
+          .then(function (success) {
             $location.path('/');
           })
-          .catch(function(error) {
+          .catch(function (error) {
             $.growl.error({title: 'Login Failed!', message: 'Username or password incorrect'});
           });
+    };
+  }
+
+  /* @ngInject */
+  function UsersPasswordResetCtrl($scope, $location, $auth) {
+    $scope.user = {};
+
+    $scope.requestPasswordReset = function () {
+      $auth.requestPasswordReset($scope.user)
+          .then(function (success) {
+            $location.path('/');
+          })
     };
   }
 
