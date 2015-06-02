@@ -14,8 +14,6 @@ Rails.application.routes.draw do
       put '/me', to: 'me#update'
       put '/me/password', to: 'me#password'
       put '/me/avatar', to: 'me#avatar'
-
-      resources :users
     end
   end
 
