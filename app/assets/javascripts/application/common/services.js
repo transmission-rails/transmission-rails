@@ -7,12 +7,12 @@
       .factory('Store', Store);
 
   /* @ngInject */
-  function AuthInterceptor($injector) {
+  function AuthInterceptor($injector, $location, $q) {
     return {
       request: function (config) {
         if (config.url.indexOf('/api/v1') > -1) {
           $injector.invoke(['$auth', function ($auth) {
-            config.headers = $auth.retrieveData('auth_headers');
+            config.headers = $auth.retrieveData('auth_headers') || {};
 
             config.headers['Accept'] = 'application/json';
             config.headers['Content-Type'] = 'application/json';
@@ -21,6 +21,17 @@
         }
 
         return config;
+      },
+
+      responseError: function(rejection) {
+        if (rejection.config.url.indexOf('/api/v1') > -1) {
+          debugger;
+          if (rejection.status === 401) {
+            $location.path('/users/login')
+          }
+        }
+
+        return $q.reject(rejection);
       }
     };
   }
