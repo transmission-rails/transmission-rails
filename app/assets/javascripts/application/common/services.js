@@ -12,7 +12,7 @@
       request: function (config) {
         if (config.url.indexOf('/api/v1') > -1) {
           $injector.invoke(['$auth', function ($auth) {
-            config.headers = $auth.retrieveData('auth_headers') || {};
+            config.headers = $auth.retrieveData('auth_headers');
 
             config.headers['Accept'] = 'application/json';
             config.headers['Content-Type'] = 'application/json';

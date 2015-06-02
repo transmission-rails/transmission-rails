@@ -4,7 +4,6 @@
   angular
       .module('application.common')
       .directive('navbar', navbar)
-      .directive('subNavbar', subNavbar)
       .directive('imageFallback', imageFallback)
       .directive('footer', footer);
 
@@ -27,17 +26,6 @@
         };
       }
     }
-  }
-
-  /* @ngInject */
-  function subNavbar($route) {
-    return {
-      restrict: 'E',
-      templateUrl: '/templates/common/partials/profile-navbar.directive.html',
-      link: function (scope, elem, attrs) {
-        scope.route = $route.current.$$route.name;
-      }
-    };
   }
 
   /* @ngInject */
