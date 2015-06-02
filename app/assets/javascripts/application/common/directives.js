@@ -8,7 +8,7 @@
       .directive('footer', footer);
 
   /* @ngInject */
-  function navbar(APP_CONSTANTS, Me, $auth) {
+  function navbar($location, $auth, APP_CONSTANTS, Me) {
     return {
       restrict: 'E',
       templateUrl: '/templates/common/partials/navbar.directive.html',
@@ -20,8 +20,8 @@
 
         scope.logout = function () {
           $auth.signOut()
-              .then(function(resp) {
-                // handle success response
+              .finally(function(resp) {
+                $location.path('/users/login')
               })
         };
       }
