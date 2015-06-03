@@ -25,7 +25,6 @@
 
       responseError: function(rejection) {
         if (rejection.config.url.indexOf('/api/v1') > -1) {
-          debugger;
           if (rejection.status === 401) {
             $location.path('/users/login')
           }
