@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  alias_method :devise_current_user, :current_user
+
+  def current_user
+    @current_user = devise_current_user
+    @current_user.last_seen = Time.now
+    @current_user.save!
+    @current_user
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :username
