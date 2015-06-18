@@ -1,0 +1,30 @@
+(function (angular) {
+    'use strict';
+
+    angular
+            .module('application.users')
+            .config(moduleConfig);
+
+    /* @ngInject */
+    function moduleConfig($routeProvider) {
+        $routeProvider
+                .when('/users/login', {
+                    templateUrl: '<%= asset_path('application/users/partials/login.html') %>',
+                    controller: 'UsersLoginCtrl',
+                    name: 'users_login'
+                })
+
+                .when('/users/password_reset', {
+                    templateUrl: '<%= asset_path('application/users/partials/password_reset.html') %>',
+                    controller: 'UsersPasswordResetCtrl',
+                    name: 'users_forgot'
+                })
+
+                .when('/users/registration', {
+                    templateUrl: '<%= asset_path('application/users/partials/registration.html') %>',
+                    controller: 'UsersRegistrationCtrl',
+                    name: 'users_registration'
+                })
+    }
+
+}(window.angular));

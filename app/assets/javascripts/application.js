@@ -1,16 +1,18 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+// Bower libraries
+//= require ../../../vendor/assets/bower/jquery/dist/jquery.js
+//= require ../../../vendor/assets/bower/underscore/underscore.js
+//= require ../../../vendor/assets/bower/moment/moment.js
+//= require ../../../vendor/assets/bower/growl/javascripts/jquery.growl.js
+
+// Bower Angular libraries
+//= require ../../../vendor/assets/bower/angular/angular.js
+//= require ../../../vendor/assets/bower/angular-cookie/angular-cookie.js
+//= require ../../../vendor/assets/bower/angular-animate/angular-animate.js
+//= require ../../../vendor/assets/bower/angular-route/angular-route.js
+//= require ../../../vendor/assets/bower/ng-token-auth/dist/ng-token-auth.js
+//= require ../../../vendor/assets/bower/angular-bootstrap/ui-bootstrap.js
+//= require ../../../vendor/assets/bower/angular-bootstrap/ui-bootstrap-tpls.js
+//= require ../../../vendor/assets/bower/angular-moment/angular-moment.js
+
+// My application
+//= require_tree ./application

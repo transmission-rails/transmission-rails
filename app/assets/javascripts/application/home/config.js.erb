@@ -1,0 +1,18 @@
+(function (angular) {
+    'use strict';
+
+    angular
+            .module('application.home')
+            .config(moduleConfig);
+
+    /* @ngInject */
+    function moduleConfig($routeProvider) {
+        $routeProvider
+                .when('/', {
+                    templateUrl: '<%= asset_path('application/home/partials/home.html') %>',
+                    controller: 'HomeCtrl',
+                    name: 'home'
+                });
+    }
+
+}(window.angular));

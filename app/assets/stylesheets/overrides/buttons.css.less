@@ -1,0 +1,45 @@
+.btn {
+  .transition(200ms linear all);
+  border: 1px solid transparent;
+  &:hover,
+  &:focus {
+    border: 1px solid transparent;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    .transition(200ms linear all);
+  }
+}
+
+.btn-default {
+  border: 1px solid @brand-primary;
+  .button-variant(@gray-darker, #fff, @btn-default-border);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @gray-darker;
+  }
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+  }
+}
